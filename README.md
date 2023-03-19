@@ -1,6 +1,10 @@
 # ChromeCookiesViewer
 ChromeCookiesViewer is a Windows command-line tool that allows you to export or delete the cookies stored by Google Chrome Web Browser.
 
+## Downloads
+
+Download from [releases](https://github.com/mdapei/ChromeCookiesViewer/releases)
+
 ## Development
 
 - IDE: [Visual Studio 2019](https://learn.microsoft.com/it-it/visualstudio/releases/2019/release-notes)
