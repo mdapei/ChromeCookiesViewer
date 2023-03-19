@@ -26,7 +26,6 @@ ChromeCookiesViewer <host> [-s <file> | -p | -d] [OPTIONS]
 
    -p            Print cookies in console.
 
-
    -d            Delete cookies from the browser (Google Chrome must be closed).
 
 Options:
