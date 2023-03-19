@@ -1,6 +1,13 @@
 # ChromeCookiesViewer
 ChromeCookiesViewer is a Windows command-line tool that allows you to export or delete the cookies stored by Google Chrome Web Browser.
 
+### Build
+1. Clone the repository.
+```
+$ git clone https://github.com/mdapei/ChromeCookiesViewer.git
+```
+2. Open the repository in VS2019, switch to the _Release_ configuration, and build the solution.
+
 ### Usage
 ```
 ChromeCookiesViewer <host> [-s <file> | -p | -d] [OPTIONS]
@@ -11,6 +18,7 @@ ChromeCookiesViewer <host> [-s <file> | -p | -d] [OPTIONS]
    -s <file>     Save the cookies in the specified text file (path can be absolute or relative).
 
    -p            Print cookies in console.
+
 
    -d            Delete cookies from the browser (Google Chrome must be closed).
 
@@ -24,14 +32,6 @@ Options:
 
    -e            Exclude expired cookies.
 ```
-
-### Build
-1. Clone the repository.
-```
-$ git clone https://github.com/mdapei/ChromeCookiesViewer.git
-```
-2. Open the repository in VS2019, switch to the _Release_ configuration, and build the solution.
-     
 ## Support
 GitHub Issues are for Bugs and Feature Requests Only
 
