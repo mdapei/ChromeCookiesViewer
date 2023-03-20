@@ -45,7 +45,7 @@ namespace ChromeCookiesViewer
                     usageType = UsageType.Delete;
                     i = 2;
                 }
-                else if (args.Length >= 3 && args[1].ToLower() == "-s" && Uri.IsWellFormedUriString(args[2], UriKind.RelativeOrAbsolute))
+                else if (args.Length >= 3 && args[1].ToLower() == "-s")
                 {
                     usageType = UsageType.Save;
                     outputFile = args[2];
