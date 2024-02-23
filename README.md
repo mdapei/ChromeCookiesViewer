@@ -43,6 +43,16 @@ Options:
    -e            Exclude expired cookies.
 ```
 
+### Unable to Open Database File
+
+Due to a recent Google Chrome update (version 114.0.5735.110 and later) to protect users against malware attempting to steal cookie information, you need to launch it from the command line with:
+
+```
+chrome.exe --disable-features=LockProfileCookieDatabase
+```
+
+Another option is just close Google Chrome before running ChromeCookiesViewer.
+
 ## Support
 GitHub Issues are for Bugs and Feature Requests Only
 
