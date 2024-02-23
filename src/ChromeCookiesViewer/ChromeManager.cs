@@ -34,19 +34,30 @@ namespace ChromeCookiesViewer
 
                         while (reader.Read())
                         {
-                            AesGcm256.prepare((byte[])reader["encrypted_value"], out nonce, out ciphertextTag);
-                            string value = AesGcm256.decrypt(ciphertextTag, key, nonce);
+                            String host = (string)reader["host_key"];
 
-                            data.Add(new Cookie()
+                            try
                             {
-                                Name = (string)reader["name"],
-                                Value = value,
-                                HostKey = (string)reader["host_key"],
-                                Path = (string)reader["path"],
-                                CreationUTC = (long)reader["creation_utc"],
-                                LastUpdateUTC = (long)reader["last_update_utc"],
-                                ExpiresUTC = (long)reader["expires_utc"]
-                            });
+                                byte[] encryptedData = (byte[])reader["encrypted_value"];
+
+                                AesGcm256.prepare(encryptedData, out nonce, out ciphertextTag);
+                                string value = AesGcm256.decrypt(ciphertextTag, key, nonce);
+
+                                data.Add(new Cookie()
+                                {
+                                    Name = (string)reader["name"],
+                                    Value = value,
+                                    HostKey = host,
+                                    Path = (string)reader["path"],
+                                    CreationUTC = (long)reader["creation_utc"],
+                                    LastUpdateUTC = (long)reader["last_update_utc"],
+                                    ExpiresUTC = (long)reader["expires_utc"]
+                                });
+                            }
+                            catch(Exception ex)
+                            {
+                                Console.WriteLine("WARN: unable to decrypt cookie from '" + host + "': " + ex.Message);
+                            }
                         }
                     }
 

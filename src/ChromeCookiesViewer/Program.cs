@@ -209,7 +209,17 @@ namespace ChromeCookiesViewer
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ERROR: " + ex.Message);
+                // SQLITE_CANTOPEN
+                if (ex is SqliteException && ((SqliteException)ex).SqliteErrorCode == 14)
+                {
+                    Console.WriteLine("ERROR: Unable to open the database file. " +
+                        "Please retry closing Chrome or launching it from the command line with: " + "\r\n" +
+                        "'chrome.exe --disable-features=LockProfileCookieDatabase'");
+                }
+                else
+                {
+                    Console.WriteLine("ERROR: " + ex.Message + "\r\n" + ex.StackTrace);
+                }
             }
         }
 
